@@ -1,0 +1,4 @@
+# Separate environment for ONNX -> RKNN conversion only (Python 3.8-3.12; tested on 3.11)
+# Must match the board runtime: librknnmrt 2.3.2 on the Luckfox Pico (RV1103).
+rknn-toolkit2==2.3.2
+onnx==1.16.1         # newer onnx removed onnx.mapping, which rknn-toolkit2 2.3.2 still uses

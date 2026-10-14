@@ -1,0 +1,39 @@
+{
+ "S1_onset_F1": 0.9741454319453077,
+ "S2_onset_F1": 0.9631611698817671,
+ "recordings": 636,
+ "recordings_sqi0": 61,
+ "rec_AUC_v1": 0.9163791874554528,
+ "rec_bestBA_v1": 0.8613684960798289,
+ "rec_AUC_v2": 0.9312330719885957,
+ "rec_bestBA_v2": 0.8769066286528866,
+ "beats": 91722,
+ "beat_AUC": 0.9468759815700709,
+ "beat_BA_usable_flag": 0.9188728823171424,
+ "beat_by_snr": {
+  "-10": {
+   "true_usable": 0.7535160593968732,
+   "flagged_usable": 0.6997448812716688
+  },
+  "-5": {
+   "true_usable": 0.7857656832602865,
+   "flagged_usable": 0.7284620919735724
+  },
+  "0": {
+   "true_usable": 0.8978870936089488,
+   "flagged_usable": 0.7677765421600052
+  },
+  "5": {
+   "true_usable": 0.9943743049650029,
+   "flagged_usable": 0.8748609930005887
+  },
+  "10": {
+   "true_usable": 1.0,
+   "flagged_usable": 0.9264734741937594
+  },
+  "20": {
+   "true_usable": 1.0,
+   "flagged_usable": 0.9402760515470662
+  }
+ }
+}

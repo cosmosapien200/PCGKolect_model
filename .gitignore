@@ -1,0 +1,10 @@
+# Regenerable working data (built from public datasets by the prep scripts)
+data/
+runs/
+export/
+# The released model is tracked in release/, evaluation summaries in results/
+
+__pycache__/
+*.pyc
+.venv/
+venv/

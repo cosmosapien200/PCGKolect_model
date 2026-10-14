@@ -1,0 +1,8 @@
+# Training / evaluation environment (Python 3.12, tested versions)
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+soundfile==0.14.0
+torch==2.14.1        # CUDA build for GPU training; CPU works but is slower
+onnx==1.23.2
+onnxruntime==1.31.0

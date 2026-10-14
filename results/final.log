@@ -1,0 +1,15 @@
+6316 recordings, 39.8 h; noise bank 3511 clips
+  params 364325
+  step 1000/12000 loss 0.536  36s
+  step 2000/12000 loss 0.494  72s
+  step 3000/12000 loss 0.474  108s
+  step 4000/12000 loss 0.467  144s
+  step 5000/12000 loss 0.453  179s
+  step 6000/12000 loss 0.455  215s
+  step 7000/12000 loss 0.434  250s
+  step 8000/12000 loss 0.430  286s
+  step 9000/12000 loss 0.415  322s
+  step 10000/12000 loss 0.408  358s
+  step 11000/12000 loss 0.412  393s
+  step 12000/12000 loss 0.406  429s
+saved /home/lokesh/Automata/PCGKolect/PCGKolect_quality/seg/../runs/seg_final.pt

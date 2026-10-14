@@ -1,0 +1,101 @@
+6316 recordings, 39.8 h; noise bank 3511 clips
+fold 0: train 5713 recs, test 603 PhysioNet recs
+  params 364325
+  step 1000/12000 loss 0.541  33s
+  step 2000/12000 loss 0.494  68s
+  step 3000/12000 loss 0.471  106s
+  step 4000/12000 loss 0.463  141s
+  step 5000/12000 loss 0.460  176s
+  step 6000/12000 loss 0.447  212s
+  step 7000/12000 loss 0.425  248s
+  step 8000/12000 loss 0.414  284s
+  step 9000/12000 loss 0.419  319s
+  step 10000/12000 loss 0.405  355s
+  step 11000/12000 loss 0.403  390s
+  step 12000/12000 loss 0.404  426s
+{"state_acc": 0.9479462871409778, "noise_frame_auc": 0.9533648711465593, "n_windows": 22677, "n_bad": 1597}
+[fold 0] v1 (features+LR)       AUC=0.917  best-BA=0.853  per-subset AUC a:0.902 b:0.866 d:0.999 e:0.944 f:0.821
+[fold 0] v2 mean(1-Pnoise)      AUC=0.962  best-BA=0.903  per-subset AUC a:0.953 b:0.822 d:0.974 e:0.981 f:0.776
+[fold 0] v2 mean(u*conf)        AUC=0.964  best-BA=0.900  per-subset AUC a:0.958 b:0.814 d:0.977 e:0.981 f:0.818
+[fold 0] v2 q20(1-Pnoise)       AUC=0.962  best-BA=0.898  per-subset AUC a:0.952 b:0.825 d:0.989 e:0.980 f:0.778
+fold 1: train 5692 recs, test 624 PhysioNet recs
+  params 364325
+  step 1000/12000 loss 0.523  36s
+  step 2000/12000 loss 0.484  71s
+  step 3000/12000 loss 0.478  107s
+  step 4000/12000 loss 0.467  143s
+  step 5000/12000 loss 0.445  178s
+  step 6000/12000 loss 0.432  212s
+  step 7000/12000 loss 0.426  245s
+  step 8000/12000 loss 0.417  278s
+  step 9000/12000 loss 0.414  313s
+  step 10000/12000 loss 0.408  344s
+  step 11000/12000 loss 0.402  376s
+  step 12000/12000 loss 0.403  408s
+{"state_acc": 0.9444484930192449, "noise_frame_auc": 0.9566045795711292, "n_windows": 24361, "n_bad": 2026}
+[fold 1] v1 (features+LR)       AUC=0.931  best-BA=0.853  per-subset AUC a:0.952 b:0.802 c:0.993 d:0.958 e:0.945 f:0.831
+[fold 1] v2 mean(1-Pnoise)      AUC=0.964  best-BA=0.891  per-subset AUC a:0.976 b:0.851 c:0.981 d:0.999 e:0.974 f:0.785
+[fold 1] v2 mean(u*conf)        AUC=0.965  best-BA=0.900  per-subset AUC a:0.976 b:0.852 c:0.971 d:0.997 e:0.973 f:0.822
+[fold 1] v2 q20(1-Pnoise)       AUC=0.963  best-BA=0.890  per-subset AUC a:0.975 b:0.845 c:0.980 d:0.998 e:0.974 f:0.784
+fold 2: train 5679 recs, test 637 PhysioNet recs
+  params 364325
+  step 1000/12000 loss 0.519  32s
+  step 2000/12000 loss 0.492  64s
+  step 3000/12000 loss 0.469  96s
+  step 4000/12000 loss 0.463  129s
+  step 5000/12000 loss 0.456  161s
+  step 6000/12000 loss 0.440  194s
+  step 7000/12000 loss 0.429  226s
+  step 8000/12000 loss 0.413  259s
+  step 9000/12000 loss 0.411  292s
+  step 10000/12000 loss 0.406  324s
+  step 11000/12000 loss 0.401  356s
+  step 12000/12000 loss 0.399  388s
+{"state_acc": 0.946015657032792, "noise_frame_auc": 0.9472299005681459, "n_windows": 23534, "n_bad": 2390}
+[fold 2] v1 (features+LR)       AUC=0.931  best-BA=0.859  per-subset AUC a:0.845 b:0.711 c:0.999 d:0.855 e:0.966 f:0.834
+[fold 2] v2 mean(1-Pnoise)      AUC=0.957  best-BA=0.895  per-subset AUC a:0.902 b:0.781 c:1.000 d:0.861 e:0.989 f:0.769
+[fold 2] v2 mean(u*conf)        AUC=0.957  best-BA=0.892  per-subset AUC a:0.908 b:0.778 c:1.000 d:0.859 e:0.988 f:0.769
+[fold 2] v2 q20(1-Pnoise)       AUC=0.957  best-BA=0.895  per-subset AUC a:0.901 b:0.780 c:1.000 d:0.860 e:0.988 f:0.766
+fold 3: train 5651 recs, test 665 PhysioNet recs
+  params 364325
+  step 1000/12000 loss 0.531  32s
+  step 2000/12000 loss 0.491  65s
+  step 3000/12000 loss 0.472  97s
+  step 4000/12000 loss 0.462  129s
+  step 5000/12000 loss 0.445  161s
+  step 6000/12000 loss 0.444  194s
+  step 7000/12000 loss 0.426  226s
+  step 8000/12000 loss 0.424  259s
+  step 9000/12000 loss 0.414  293s
+  step 10000/12000 loss 0.406  326s
+  step 11000/12000 loss 0.403  359s
+  step 12000/12000 loss 0.410  391s
+{"state_acc": 0.9464344392000448, "noise_frame_auc": 0.9499275844244751, "n_windows": 24042, "n_bad": 1862}
+[fold 3] v1 (features+LR)       AUC=0.913  best-BA=0.851  per-subset AUC a:0.880 b:0.774 c:0.985 d:0.893 e:0.941 f:0.752
+[fold 3] v2 mean(1-Pnoise)      AUC=0.962  best-BA=0.899  per-subset AUC a:0.969 b:0.838 c:1.000 d:1.000 e:0.970 f:0.871
+[fold 3] v2 mean(u*conf)        AUC=0.967  best-BA=0.900  per-subset AUC a:0.966 b:0.844 c:1.000 d:0.995 e:0.976 f:0.885
+[fold 3] v2 q20(1-Pnoise)       AUC=0.962  best-BA=0.899  per-subset AUC a:0.966 b:0.834 c:0.999 d:1.000 e:0.970 f:0.872
+fold 4: train 5692 recs, test 624 PhysioNet recs
+  params 364325
+  step 1000/12000 loss 0.524  32s
+  step 2000/12000 loss 0.487  64s
+  step 3000/12000 loss 0.473  95s
+  step 4000/12000 loss 0.465  127s
+  step 5000/12000 loss 0.454  158s
+  step 6000/12000 loss 0.441  190s
+  step 7000/12000 loss 0.429  221s
+  step 8000/12000 loss 0.422  252s
+  step 9000/12000 loss 0.411  283s
+  step 10000/12000 loss 0.414  315s
+  step 11000/12000 loss 0.405  346s
+  step 12000/12000 loss 0.406  378s
+{"state_acc": 0.9457928029656405, "noise_frame_auc": 0.9652642922751803, "n_windows": 23814, "n_bad": 2234}
+[fold 4] v1 (features+LR)       AUC=0.921  best-BA=0.849  per-subset AUC a:0.923 b:0.773 d:1.000 e:0.962 f:0.776
+[fold 4] v2 mean(1-Pnoise)      AUC=0.971  best-BA=0.907  per-subset AUC a:0.987 b:0.847 d:1.000 e:0.985 f:0.816
+[fold 4] v2 mean(u*conf)        AUC=0.969  best-BA=0.902  per-subset AUC a:0.992 b:0.849 d:1.000 e:0.983 f:0.771
+[fold 4] v2 q20(1-Pnoise)       AUC=0.970  best-BA=0.905  per-subset AUC a:0.986 b:0.843 d:1.000 e:0.985 f:0.807
+[pooled] v1 (features+LR)       AUC=0.923  best-BA=0.852  per-subset AUC a:0.903 b:0.781 c:0.966 d:0.897 e:0.953 f:0.800
+[pooled] v2 mean(1-Pnoise)      AUC=0.963  best-BA=0.897  per-subset AUC a:0.950 b:0.819 c:0.974 d:0.921 e:0.979 f:0.801
+[pooled] v2 mean(u*conf)        AUC=0.964  best-BA=0.898  per-subset AUC a:0.953 b:0.820 c:0.967 d:0.913 e:0.980 f:0.810
+[pooled] v2 q20(1-Pnoise)       AUC=0.962  best-BA=0.896  per-subset AUC a:0.949 b:0.817 c:0.973 d:0.923 e:0.979 f:0.799
+CV_DONE
