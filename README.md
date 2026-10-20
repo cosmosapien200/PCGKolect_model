@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/branding/logo_full_white.png">
+    <img src="docs/branding/logo_full.png" alt="PCGKollect" width="220">
+  </picture>
+</p>
+
 # PCGKolect_model
 
 **Heart-sound recording-quality models for PCGKolect.** Training, evaluation and deployment code
