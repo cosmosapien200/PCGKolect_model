@@ -17,8 +17,9 @@ for the models that run on the PCGKolect device's Rockchip RV1103.
 
 | Repository | Role |
 |---|---|
-| [PCGKolect](https://github.com/cosmosapien200/PCGKolect) | ESP32-S3 firmware: PCM1803A ADC capture (I²S/DMA), USB audio, 8 kHz framed PCM over UART to the RV1103 |
-| [PCGKolect_rk](https://github.com/cosmosapien200/PCGKolect_rk) | RV1103 (Luckfox Pico) firmware: UART receiver, quality pipeline in C++, RKNN NPU inference, SSD1306 OLED, session recording |
+| [PCGKolect](https://github.com/cosmosapien200/PCGKolect) | ESP32-S3 firmware: PCM1803A ADC capture (I²S/DMA), USB audio, 8 kHz framed PCM + control link over UART to the RV1103, BLE + Wi-Fi for the phone app |
+| [PCGKolect_rk](https://github.com/cosmosapien200/PCGKolect_rk) | RV1103 (Luckfox Pico) firmware: link endpoint, RKNN NPU inference of the v2 model, session engine + recordings, SSD1306 OLED, USB wired link to the phone |
+| [PCGKollect_app](https://github.com/cosmosapien200/PCGKollect_app) | Flutter phone app: datasets, recording control, verified transfer, playback, statistics |
 | **PCGKolect_model** (this repo) | Datasets, training, evaluation, ONNX → RKNN export, and Python reference implementations of everything the firmware runs |
 
 The full story of how the models were built, and why each choice was made, is in **[DEVLOG.md](DEVLOG.md)**.
@@ -27,13 +28,13 @@ The full story of how the models were built, and why each choice was made, is in
 
 ## What the models do
 
-Two models, both deployed on the RV1103:
+Two models. **v2 is what the firmware uses**; v1 stays in the repo (and in `PCGKolect_rk` tools/tests) as a reference and for PC analysis:
 
 | | **v2: beat-level segmentation quality** (primary) | **v1: SQI features + logistic regression** |
 |---|---|---|
 | Runs on | NPU (INT8 RKNN, 1.65 ms per inference) + CPU decoder | CPU (≈ 0.4 ms per second of audio) |
 | Output | per **20 ms frame**: P(S1, systole, S2, diastole, noise); per **beat**: usable / rejected + confidence | per **1 s**: quality score, GOOD / MARGINAL / BAD + reason |
-| Role on device | decides which heartbeats are usable; drives the OLED | instant deterministic gates (clipping, no contact, too loud), and the fallback when no model file is present |
+| Role | on the device: decides which heartbeats are usable, live quality score, auto-start, targets | PC analysis / reference only — its gates (clipping, no contact, too loud) no longer reject data on the device |
 
 v2 pipeline on the device (identical in Python and C++):
 
@@ -44,8 +45,9 @@ UART int16 @ 8 kHz
  → NPU: 1D U-Net [1,32,1,256] → [1,5,1,256] logits                       (364k params, INT8)
  → CPU: softmax → frames with ≥ 1.28 s future context → 20 s history
  → duration-constrained Viterbi (S1 → systole → S2 → diastole, noise may interrupt)
- → beats: usable if confidence ≥ 0.70, 0.3–2.0 s long, within ±30 % of neighbouring beats
- → v1 gates veto beats → usable beats, longest run, coverage, HR → OLED / CSV
+ → beats: usable if confidence ≥ the dataset threshold (set in the app, default 0.80),
+   0.3–2.0 s long, and (optional rhythm check) within ±30 % of neighbouring beats
+ → usable beats, longest run, usable time, live score → session engine / OLED / sidecar CSVs
 ```
 
 ## Results (5-fold cross-validation on held-out PhysioNet recordings; v1 retrained on the same splits)
@@ -191,12 +193,13 @@ python score_wav.py some.wav   # per-second v1 timeline
 
 ## Reviewing device recordings
 
-The firmware records every session to `/root/recordings/session_NNN.wav`, plus `_beats.csv` and
-`_quality.csv`. From `PCGKolect_rk`:
+The firmware stores each recording as `/root/recordings/<recording_id>/` with `audio.wav`,
+`beats.csv`, `quality.csv` and `meta.json` (format: PCGKollect_app `docs/PROTOCOL.md` §5); the phone
+app downloads them, and the app's ZIP export contains the same files. From `PCGKolect_rk`:
 ```bash
 make pull-recordings
 python tools/view_in_audacity.py          # menu → opens Audacity with the audio + Beats + Quality label tracks
-python tools/view_in_audacity.py -s 002   # a specific session
+python tools/view_in_audacity.py -s 3f2a  # the recording whose id starts with 3f2a
 ```
 `seg/review_session.py` here does the same analysis on the PC for any WAV (used for pre-labelling
 fine-tuning data).
